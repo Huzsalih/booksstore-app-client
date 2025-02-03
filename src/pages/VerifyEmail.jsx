@@ -11,7 +11,7 @@ const VerifyEmail = () => {
 
     useEffect(() => {
         if (token) {
-            axios.get(`http://localhost:5995/user/verify?token=${token}`)
+            axios.get(`https://booksstore-app-server.onrender.com/user/verify?token=${token}`)
                 .then(() => {
                     enqueueSnackbar("Email verified successfully! You can now log in.", { variant: "success" });
                     navigate("/");
