@@ -17,16 +17,16 @@ const SignUp = () => {
     const handleSignUp = () => {
         
         axios
-        .post('https://booksstore-app-server.onrender.com/user/signup', { username, email, password })
-        .then(() => {
-            enqueueSnackbar('Signup successfully', { variant: 'success'});
-            navigate('/');
+        .post('http://localhost:5995/user/signup', { username, email, password })
+        .then((response) => {
+            enqueueSnackbar(response.data.message, { variant: 'success'});
+            navigate('/Verify');
         })
 
         .catch(error => {
-            enqueueSnackbar('Sign up faild', {variant: 'error'});
-            console.log(error);
-        })
+          enqueueSnackbar(error.response?.data?.message || 'Sign up failed', { variant: 'error' });
+      });
+        
     }
 
   return (
