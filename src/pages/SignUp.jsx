@@ -17,7 +17,7 @@ const SignUp = () => {
     const handleSignUp = () => {
         
         axios
-        .post('http://localhost:5995/user/signup', { username, email, password })
+        .post('https://booksstore-app-server.onrender.com/user/signup', { username, email, password })
         .then((response) => {
             enqueueSnackbar(response.data.message, { variant: 'success'});
             navigate('/Verify');
